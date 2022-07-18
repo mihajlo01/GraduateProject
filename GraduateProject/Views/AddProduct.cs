@@ -17,6 +17,7 @@ namespace GraduateProject.Views
     public partial class AddProduct : Form
     {
         IProductsInterface productsInterface;
+        IUsersInterface usersInterface;
         NumericUpDown numericUpDown;
         User user;
 
@@ -24,6 +25,7 @@ namespace GraduateProject.Views
         {
             InitializeComponent();
             productsInterface = new ProductsController();
+            usersInterface = new UsersController();
             this.user = user;
 
             if (numberedProductSize.Checked == true)
@@ -76,9 +78,9 @@ namespace GraduateProject.Views
         {
             var product = new Product()
             {
-                ProductType = productType.Text,
-                Provider = provider.Text,
-                ProductSize = textProductSize.Visible == true ? textProductSize.Text : numberedProductSize.Text,
+                ProductType = productType.SelectedItem.ToString(),
+                Provider = provider.SelectedItem.ToString(),
+                ProductSize = productSize.Visible == true ? productSize.SelectedItem.ToString() : numericUpDown.Value.ToString(),
                 ProductCode = (long)Convert.ToInt64(productCode.Text),
                 Color = productColor.Text,
                 Price = price.Value,
@@ -89,9 +91,26 @@ namespace GraduateProject.Views
             };
 
             if (await productsInterface.InsertProduct(product))
-                refresh_Click(sender, e);
+            {
+                var fetchedUser = await usersInterface.GetUserByUsername(user.Username);
+                fetchedUser.ProductsCount += 1;
+                if (fetchedUser != null)
+                {
+                    await usersInterface.UpdateUser(fetchedUser._id, fetchedUser);
+                    MessageBox.Show("Product has been added successfully!", "Success!", MessageBoxButtons.OK);
+                    refresh_Click(sender, e);
+                }
+            }
             else
                 MessageBox.Show("An error while inserting the product has occured!", "Failure!", MessageBoxButtons.OK);
+        }
+
+        private void productCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

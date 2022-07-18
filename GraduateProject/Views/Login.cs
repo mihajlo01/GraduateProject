@@ -24,20 +24,7 @@ namespace GraduateProject
         {
             if(e.KeyCode == Keys.Enter)
             {
-                var user = await usersInterface.ValidateUserLogin(username.Text, password.Text);
-                if (user != null)
-                {
-                    Dashboard navWindow = new Dashboard(user);
-                    Hide();
-                    navWindow.ShowDialog();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Username or password is incorrect!", "Failed to login!", MessageBoxButtons.OK);
-                    username.Clear();
-                    password.Clear();
-                }
+                LoginUser();
             }
         }
 
@@ -54,6 +41,34 @@ namespace GraduateProject
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
+            }
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            LoginUser();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private async void LoginUser()
+        {
+            var user = await usersInterface.ValidateUserLogin(username.Text, password.Text);
+            if (user != null)
+            {
+                Dashboard navWindow = new Dashboard(user);
+                Hide();
+                navWindow.ShowDialog();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Username or password is incorrect!", "Failed to login!", MessageBoxButtons.OK);
+                username.Clear();
+                password.Clear();
             }
         }
     }

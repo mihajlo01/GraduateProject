@@ -151,7 +151,6 @@ namespace GraduateProject.Views
             this.productColor.Name = "productColor";
             this.productColor.Size = new System.Drawing.Size(121, 20);
             this.productColor.TabIndex = 10;
-            this.productColor.Text = "Enter product color";
             // 
             // productCode
             // 
@@ -159,6 +158,7 @@ namespace GraduateProject.Views
             this.productCode.Name = "productCode";
             this.productCode.Size = new System.Drawing.Size(121, 20);
             this.productCode.TabIndex = 11;
+            this.productCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productCode_KeyPress);
             // 
             // isProductAvailable
             // 
@@ -236,6 +236,16 @@ namespace GraduateProject.Views
             // productSize
             // 
             this.productSize.FormattingEnabled = true;
+            this.productSize.Items.AddRange(new object[] {
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "XXXL",
+            "XXXXL",
+            "XXXXXL"});
             this.productSize.Location = new System.Drawing.Point(109, 120);
             this.productSize.Name = "productSize";
             this.productSize.Size = new System.Drawing.Size(123, 21);

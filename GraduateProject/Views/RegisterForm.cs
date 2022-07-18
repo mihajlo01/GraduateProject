@@ -18,15 +18,20 @@ namespace GraduateProject
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.Name = textBoxName.Text;
-            user.Username = textBoxUsername.Text;
-            user.CompanyName = textBoxCompanyName.Text;
-            user.Password = textBoxPassword.Text;
-            user.EditUserPermission = editUserPermission.Checked;
-            user.AddProductPermission = addProductsPermission.Checked;
-            user.RemoveProductPermission = removeProductsPermission.Checked;
-            user.ProductDashboardPermission = productDashboardPermission.Checked;
+            ValidateRegisterForm();
+
+            User user = new User()
+            {
+                Name = textBoxName.Text,
+                Username = textBoxUsername.Text,
+                CompanyName = textBoxCompanyName.Text,
+                Password = textBoxPassword.Text,
+                ProductsCount = 0,
+                EditUserPermission = editUserPermission.Checked,
+                AddProductPermission = addProductsPermission.Checked,
+                RemoveProductPermission = removeProductsPermission.Checked,
+                ProductDashboardPermission = productDashboardPermission.Checked
+            };
 
 
             if (await usersInterface.InsertUser(user))
@@ -80,6 +85,14 @@ namespace GraduateProject
             {
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void ValidateRegisterForm()
+        {
+            if (textBoxName.Text == string.Empty || textBoxUsername.Text == string.Empty || textBoxCompanyName.Text == string.Empty || textBoxPassword.Text == string.Empty)
+                MessageBox.Show("Text fields must be filled!", "Failure!", MessageBoxButtons.OK);
+            else
+                return;
         }
     }
 }
