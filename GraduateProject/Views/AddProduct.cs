@@ -1,4 +1,7 @@
-﻿using GraduateProject.Models;
+﻿using GraduateProject.Logic.Controllers;
+using GraduateProject.Logic.Interfaces;
+using GraduateProject.Logic.Models;
+using GraduateProject.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +16,14 @@ namespace GraduateProject.Views
 {
     public partial class AddProduct : Form
     {
+        IProductsInterface productsInterface;
         NumericUpDown numericUpDown;
         User user;
 
         public AddProduct(User user)
         {
             InitializeComponent();
+            productsInterface = new ProductsController();
             this.user = user;
 
             if (numberedProductSize.Checked == true)
@@ -65,6 +70,28 @@ namespace GraduateProject.Views
             Hide();
             addProduct.ShowDialog();
             Close();
+        }
+
+        private async void addButton_Click(object sender, EventArgs e)
+        {
+            var product = new Product()
+            {
+                ProductType = productType.Text,
+                Provider = provider.Text,
+                ProductSize = textProductSize.Visible == true ? textProductSize.Text : numberedProductSize.Text,
+                ProductCode = (long)Convert.ToInt64(productCode.Text),
+                Color = productColor.Text,
+                Price = price.Value,
+                IsProductAvailable = isProductAvailable.Checked,
+                Quantity = (int)Convert.ToInt32(quantity.Value),
+                TimeAdded = DateTime.Now,
+                AddedBy = user.Username
+            };
+
+            if (await productsInterface.InsertProduct(product))
+                refresh_Click(sender, e);
+            else
+                MessageBox.Show("An error while inserting the product has occured!", "Failure!", MessageBoxButtons.OK);
         }
     }
 }

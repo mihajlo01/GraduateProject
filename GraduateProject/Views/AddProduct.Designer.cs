@@ -165,7 +165,6 @@ namespace GraduateProject.Views
             this.isProductAvailable.AutoSize = true;
             this.isProductAvailable.Checked = true;
             this.isProductAvailable.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.isProductAvailable.Enabled = false;
             this.isProductAvailable.Location = new System.Drawing.Point(27, 289);
             this.isProductAvailable.Name = "isProductAvailable";
             this.isProductAvailable.Size = new System.Drawing.Size(120, 17);
@@ -261,6 +260,7 @@ namespace GraduateProject.Views
             this.addButton.TabIndex = 25;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // AddProduct
             // 

@@ -18,5 +18,7 @@ namespace GraduateProject.Logic.Models
         public long ProductCode { get; set; }
         public decimal Price { get; set; }
         public bool IsProductAvailable { get; set; }
+        public DateTime TimeAdded { get; set; }
+        public string AddedBy { get; set; }
     }
 }
