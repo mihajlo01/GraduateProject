@@ -33,6 +33,11 @@ namespace GraduateProject.Views
         private void Dashboard_Load(object sender, EventArgs e)
         {
             welcomeLabel.Text += user.Name + "!";
+            clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
         }
 
         private void manuallyAddProductButton_Click(object sender, EventArgs e)
@@ -48,6 +53,22 @@ namespace GraduateProject.Views
             EditAcount editAcount = new EditAcount(user);
             Hide();
             editAcount.ShowDialog();
+            Close();
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Invoke(new MethodInvoker(delegate ()
+            {
+                clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            }));
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            Hide();
+            login.ShowDialog();
             Close();
         }
     }

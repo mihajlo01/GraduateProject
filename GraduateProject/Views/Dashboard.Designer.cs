@@ -34,6 +34,8 @@ namespace GraduateProject.Views
             this.automaticallyAddProductButton = new System.Windows.Forms.Button();
             this.productsDashboardButton = new System.Windows.Forms.Button();
             this.editUserButton = new System.Windows.Forms.Button();
+            this.clock = new System.Windows.Forms.Label();
+            this.logOutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -49,9 +51,9 @@ namespace GraduateProject.Views
             // manuallyAddProductButton
             // 
             this.manuallyAddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manuallyAddProductButton.Location = new System.Drawing.Point(59, 63);
+            this.manuallyAddProductButton.Location = new System.Drawing.Point(16, 69);
             this.manuallyAddProductButton.Name = "manuallyAddProductButton";
-            this.manuallyAddProductButton.Size = new System.Drawing.Size(153, 43);
+            this.manuallyAddProductButton.Size = new System.Drawing.Size(153, 30);
             this.manuallyAddProductButton.TabIndex = 1;
             this.manuallyAddProductButton.Text = "Manually Add Product ";
             this.manuallyAddProductButton.UseVisualStyleBackColor = true;
@@ -60,9 +62,9 @@ namespace GraduateProject.Views
             // automaticallyAddProductButton
             // 
             this.automaticallyAddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.automaticallyAddProductButton.Location = new System.Drawing.Point(47, 116);
+            this.automaticallyAddProductButton.Location = new System.Drawing.Point(16, 105);
             this.automaticallyAddProductButton.Name = "automaticallyAddProductButton";
-            this.automaticallyAddProductButton.Size = new System.Drawing.Size(177, 45);
+            this.automaticallyAddProductButton.Size = new System.Drawing.Size(177, 30);
             this.automaticallyAddProductButton.TabIndex = 2;
             this.automaticallyAddProductButton.Text = "Automatically Add Product ";
             this.automaticallyAddProductButton.UseVisualStyleBackColor = true;
@@ -70,9 +72,9 @@ namespace GraduateProject.Views
             // productsDashboardButton
             // 
             this.productsDashboardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productsDashboardButton.Location = new System.Drawing.Point(66, 171);
+            this.productsDashboardButton.Location = new System.Drawing.Point(16, 141);
             this.productsDashboardButton.Name = "productsDashboardButton";
-            this.productsDashboardButton.Size = new System.Drawing.Size(141, 42);
+            this.productsDashboardButton.Size = new System.Drawing.Size(141, 30);
             this.productsDashboardButton.TabIndex = 3;
             this.productsDashboardButton.Text = "Products Dashboard";
             this.productsDashboardButton.UseVisualStyleBackColor = true;
@@ -80,19 +82,42 @@ namespace GraduateProject.Views
             // editUserButton
             // 
             this.editUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editUserButton.Location = new System.Drawing.Point(77, 221);
+            this.editUserButton.Location = new System.Drawing.Point(16, 177);
             this.editUserButton.Name = "editUserButton";
-            this.editUserButton.Size = new System.Drawing.Size(118, 40);
+            this.editUserButton.Size = new System.Drawing.Size(89, 30);
             this.editUserButton.TabIndex = 4;
             this.editUserButton.Text = "Edit User";
             this.editUserButton.UseVisualStyleBackColor = true;
             this.editUserButton.Click += new System.EventHandler(this.editUserButton_Click);
             // 
+            // clock
+            // 
+            this.clock.AutoSize = true;
+            this.clock.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clock.Location = new System.Drawing.Point(311, 22);
+            this.clock.Name = "clock";
+            this.clock.Size = new System.Drawing.Size(58, 17);
+            this.clock.TabIndex = 5;
+            this.clock.Text = "00:00:00";
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutButton.Location = new System.Drawing.Point(16, 213);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(89, 30);
+            this.logOutButton.TabIndex = 6;
+            this.logOutButton.Text = "Log Out";
+            this.logOutButton.UseVisualStyleBackColor = true;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 299);
+            this.ClientSize = new System.Drawing.Size(412, 274);
+            this.Controls.Add(this.logOutButton);
+            this.Controls.Add(this.clock);
             this.Controls.Add(this.editUserButton);
             this.Controls.Add(this.productsDashboardButton);
             this.Controls.Add(this.automaticallyAddProductButton);
@@ -115,5 +140,7 @@ namespace GraduateProject.Views
         private System.Windows.Forms.Button automaticallyAddProductButton;
         private System.Windows.Forms.Button productsDashboardButton;
         private System.Windows.Forms.Button editUserButton;
+        private System.Windows.Forms.Label clock;
+        private System.Windows.Forms.Button logOutButton;
     }
 }
