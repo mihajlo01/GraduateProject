@@ -297,9 +297,11 @@ namespace GraduateProject.Views
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProducts";
+            this.Load += new System.EventHandler(this.AddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).EndInit();
             this.ResumeLayout(false);

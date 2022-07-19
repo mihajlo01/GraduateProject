@@ -31,6 +31,10 @@ namespace GraduateProject.Logic.Controllers
         {
             Initialize();
             var user = await usersInterface.GetUserByUsername(username);
+
+            if (user == null)
+                return false;
+
             byte[] hashBytes = Convert.FromBase64String(user.Password);
             byte[] salt = new byte[16];
             Array.Copy(hashBytes, 0, salt, 0, 16);

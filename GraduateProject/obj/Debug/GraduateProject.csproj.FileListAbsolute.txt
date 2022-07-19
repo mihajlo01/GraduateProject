@@ -60,7 +60,7 @@ C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\bin\Debug\NPOI.Ope
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\bin\Debug\NPOI.OpenXml4Net.xml
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\bin\Debug\NPOI.OpenXmlFormats.pdb
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.RegisterForm.resources
-C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.csproj.AssemblyReference.cache
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.EditAcount.resources
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.AddProduct.resources
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.Dashboard.resources
+C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.csproj.AssemblyReference.cache

@@ -42,7 +42,7 @@ namespace GraduateProject.Views
 
         private void textProductSize_CheckedChanged(object sender, EventArgs e)
         {
-            if(textProductSize.Checked == true)
+            if (textProductSize.Checked == true)
             {
                 numericUpDown.Visible = false;
                 productSize.Visible = true;
@@ -76,33 +76,36 @@ namespace GraduateProject.Views
 
         private async void addButton_Click(object sender, EventArgs e)
         {
-            var product = new Product()
+            if (ValidateProduct())
             {
-                ProductType = productType.SelectedItem.ToString(),
-                Provider = provider.SelectedItem.ToString(),
-                ProductSize = productSize.Visible == true ? productSize.SelectedItem.ToString() : numericUpDown.Value.ToString(),
-                ProductCode = (long)Convert.ToInt64(productCode.Text),
-                Color = productColor.Text,
-                Price = price.Value,
-                IsProductAvailable = isProductAvailable.Checked,
-                Quantity = (int)Convert.ToInt32(quantity.Value),
-                TimeAdded = DateTime.Now,
-                AddedBy = user.Username
-            };
-
-            if (await productsInterface.InsertProduct(product))
-            {
-                var fetchedUser = await usersInterface.GetUserByUsername(user.Username);
-                fetchedUser.ProductsCount += 1;
-                if (fetchedUser != null)
+                var product = new Product()
                 {
-                    await usersInterface.UpdateUser(fetchedUser._id, fetchedUser);
-                    MessageBox.Show("Product has been added successfully!", "Success!", MessageBoxButtons.OK);
-                    refresh_Click(sender, e);
+                    ProductType = productType.SelectedItem.ToString(),
+                    Provider = provider.SelectedItem.ToString(),
+                    ProductSize = productSize.Visible == true ? productSize.SelectedItem.ToString() : numericUpDown.Value.ToString(),
+                    ProductCode = (long)Convert.ToInt64(productCode.Text),
+                    Color = productColor.Text,
+                    Price = price.Value,
+                    IsProductAvailable = isProductAvailable.Checked,
+                    Quantity = (int)Convert.ToInt32(quantity.Value),
+                    TimeAdded = DateTime.Now,
+                    AddedBy = user.Username
+                };
+
+                if (await productsInterface.InsertProduct(product))
+                {
+                    var fetchedUser = await usersInterface.GetUserByUsername(user.Username);
+                    fetchedUser.ProductsCount += 1;
+                    if (fetchedUser != null)
+                    {
+                        await usersInterface.UpdateUser(fetchedUser._id, fetchedUser);
+                        MessageBox.Show("Product has been added successfully!", "Success!", MessageBoxButtons.OK);
+                        refresh_Click(sender, e);
+                    }
                 }
+                else
+                    MessageBox.Show("An error while inserting the product has occured!", "Failure!", MessageBoxButtons.OK);
             }
-            else
-                MessageBox.Show("An error while inserting the product has occured!", "Failure!", MessageBoxButtons.OK);
         }
 
         private void productCode_KeyPress(object sender, KeyPressEventArgs e)
@@ -111,6 +114,49 @@ namespace GraduateProject.Views
             {
                 e.Handled = true;
             }
+        }
+
+        public bool ValidateProduct()
+        {
+            if (string.IsNullOrEmpty(productType.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Product type must be selected!", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            if (string.IsNullOrEmpty(provider.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Product provider must be selected!", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            if (string.IsNullOrEmpty(productSize.SelectedItem.ToString()) && numericUpDown.Value <= 0)
+            {
+                MessageBox.Show("Product size must be selected!", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            if ((long)Convert.ToInt64(productCode.Text) <= 0 || productCode.Text == null)
+            {
+                MessageBox.Show("Product code must be entered!", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            if (price.Value.Equals(null) || price.Value <= 0)
+            {
+                MessageBox.Show("Product price must be entered and a positive number!", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+
+        }
+
+        private void AddProduct_Load(object sender, EventArgs e)
+        {
+            productType.SelectedIndex = 0;
+            provider.SelectedIndex = 0;
+            productSize.SelectedIndex = 0;
+            numericUpDown.Value = 0;
+            productCode.Text = 0.ToString();
+            price.Value = 0;
+            quantity.Value = 1;
+            productColor.Text = "Mixed";
         }
     }
 }

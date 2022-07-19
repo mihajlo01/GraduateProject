@@ -98,6 +98,7 @@ namespace GraduateProject.Views
             this.Controls.Add(this.automaticallyAddProductButton);
             this.Controls.Add(this.manuallyAddProductButton);
             this.Controls.Add(this.welcomeLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

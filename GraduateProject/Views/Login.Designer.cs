@@ -131,6 +131,7 @@ namespace GraduateProject
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
