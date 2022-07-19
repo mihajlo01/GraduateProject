@@ -71,5 +71,13 @@ namespace GraduateProject.Views
             login.ShowDialog();
             Close();
         }
+
+        private void productsDashboardButton_Click(object sender, EventArgs e)
+        {
+            ProductsDashboard productsDashboard = new ProductsDashboard();
+            Hide();
+            productsDashboard.ShowDialog();
+            Close();
+        }
     }
 }

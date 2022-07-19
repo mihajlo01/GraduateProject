@@ -14,7 +14,7 @@ namespace GraduateProject.Logic.Controllers
             usersInterface = new UsersController();
         }
 
-        public async Task<string> CreatePassword(string password)
+        public string CreatePassword(string password)
         {
             Initialize();
             byte[] salt;

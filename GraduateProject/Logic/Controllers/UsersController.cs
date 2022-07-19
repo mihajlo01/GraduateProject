@@ -29,18 +29,18 @@ namespace GraduateProject.Logic.Controllers
         public async Task<List<User>> GetAllUsers()
         {
             Initialize();
-            var users = user.AsQueryable();
-            return users.ToList();
+            var users = await user.Find(x => true).ToListAsync();
+            return users;
         }
 
         public async Task<User> ValidateUserLogin(string username, string enteredPassword)
         {
             Initialize();
-            var fetchedUser = user.AsQueryable().Where(x => x.Username == username);
+            var fetchedUser = await user.Find(x => x.Username == username).FirstOrDefaultAsync();
 
             if (fetchedUser != null)
                 if(await passwordInterface.CheckPassword(username, enteredPassword))
-                    return fetchedUser.FirstOrDefault();
+                    return fetchedUser;
 
             return null;
         }
@@ -48,10 +48,10 @@ namespace GraduateProject.Logic.Controllers
         public async Task<User> GetUserByUsername(string username)
         {
             Initialize();
-            var fetchedUser = user.AsQueryable().Where(x => x.Username == username);
+            var fetchedUser = await user.Find(x => x.Username == username).FirstOrDefaultAsync();
 
             if (fetchedUser != null)
-                return fetchedUser.FirstOrDefault();
+                return fetchedUser;
 
             return null;
         }
@@ -61,7 +61,7 @@ namespace GraduateProject.Logic.Controllers
             Initialize();
             if(await GetUserByUsername(userToInsert.Username) == null)
             {
-                userToInsert.Password = await passwordInterface.CreatePassword(userToInsert.Password);
+                userToInsert.Password = passwordInterface.CreatePassword(userToInsert.Password);
                 await user.InsertOneAsync(userToInsert);
 
                 return true;
@@ -72,10 +72,10 @@ namespace GraduateProject.Logic.Controllers
         public async Task<User> GetUserById(ObjectId id)
         {
             Initialize();
-            var fetchedUser = user.AsQueryable().Where(x => x._id == id);
+            var fetchedUser = await user.Find(x => x._id == id).FirstOrDefaultAsync();
 
             if (fetchedUser != null)
-                return fetchedUser.FirstOrDefault();
+                return fetchedUser;
 
             return null;
         }

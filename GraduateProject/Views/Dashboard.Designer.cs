@@ -78,6 +78,7 @@ namespace GraduateProject.Views
             this.productsDashboardButton.TabIndex = 3;
             this.productsDashboardButton.Text = "Products Dashboard";
             this.productsDashboardButton.UseVisualStyleBackColor = true;
+            this.productsDashboardButton.Click += new System.EventHandler(this.productsDashboardButton_Click);
             // 
             // editUserButton
             // 

@@ -9,7 +9,7 @@ namespace GraduateProject.Logic.Interfaces
 {
     public interface IPasswordInterface
     {
-        Task<string> CreatePassword(string password);
+        string CreatePassword(string password);
         Task<bool> CheckPassword(string username, string password);
     }
 }

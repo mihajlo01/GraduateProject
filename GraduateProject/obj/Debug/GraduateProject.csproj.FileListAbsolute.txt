@@ -63,4 +63,5 @@ C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\Graduate
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.EditAcount.resources
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.AddProduct.resources
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.Dashboard.resources
+C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.ProductsDashboard.resources
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.csproj.AssemblyReference.cache

@@ -71,7 +71,7 @@ namespace GraduateProject.Views
                     userToUpdate.RemoveProductPermission = removeProductsPermission.Checked;
                     userToUpdate.ProductDashboardPermission = productDashboardPermission.Checked;
                     if (textBoxNewPassword.Text.Length > 0)
-                        userToUpdate.Password = await passwordInterface.CreatePassword(textBoxNewPassword.Text);
+                        userToUpdate.Password = passwordInterface.CreatePassword(textBoxNewPassword.Text);
                     else
                         userToUpdate.Password = oldUser.Password;
 

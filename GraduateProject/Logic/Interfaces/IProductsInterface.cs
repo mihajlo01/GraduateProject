@@ -10,5 +10,6 @@ namespace GraduateProject.Logic.Interfaces
     public interface IProductsInterface
     {
         Task<bool> InsertProduct(Product productToInsert);
+        Task<List<Product>> GetAllProducts();
     }
 }

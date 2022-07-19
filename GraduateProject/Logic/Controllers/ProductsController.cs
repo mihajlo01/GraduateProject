@@ -30,5 +30,11 @@ namespace GraduateProject.Logic.Controllers
 
             return true;
         }
+        public async Task<List<Product>> GetAllProducts()
+        {
+            Initialize();
+            List<Product> products = await product.Find(x => true).ToListAsync();
+            return products;
+        }
     }
 }
