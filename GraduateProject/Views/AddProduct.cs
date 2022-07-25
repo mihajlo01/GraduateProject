@@ -133,9 +133,14 @@ namespace GraduateProject.Views
                 MessageBox.Show("Product size must be selected!", "Error", MessageBoxButtons.OK);
                 return false;
             }
-            if ((long)Convert.ToInt64(productCode.Text) <= 0 || productCode.Text == null)
+            if (string.IsNullOrWhiteSpace(productCode.Text) || (long)Convert.ToInt64(productCode.Text) <= 0 || productCode.Text == null)
             {
                 MessageBox.Show("Product code must be entered!", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(productColor.Text))
+            {
+                MessageBox.Show("Product color must be entered!", "Error", MessageBoxButtons.OK);
                 return false;
             }
             if (price.Value.Equals(null) || price.Value <= 0)
@@ -149,14 +154,25 @@ namespace GraduateProject.Views
 
         private void AddProduct_Load(object sender, EventArgs e)
         {
+            if (Dashboard.ManualAdd)
+                scanButton.Enabled = false;
+            else
+                productCode.Enabled = false;
+
             productType.SelectedIndex = 0;
             provider.SelectedIndex = 0;
             productSize.SelectedIndex = 0;
             numericUpDown.Value = 0;
-            productCode.Text = 0.ToString();
             price.Value = 0;
             quantity.Value = 1;
             productColor.Text = "Mixed";
+        }
+
+        private void scanButton_Click(object sender, EventArgs e)
+        {
+            Scanner scanner = new Scanner();
+            scanner.ShowDialog();
+            productCode.Text = Scanner.SetProductCode;
         }
     }
 }

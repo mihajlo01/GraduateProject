@@ -1,4 +1,5 @@
 ﻿using GraduateProject.Logic.Models;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace GraduateProject.Logic.Interfaces
     {
         Task<bool> InsertProduct(Product productToInsert);
         Task<List<Product>> GetAllProducts();
+        bool RemoveProduct(ObjectId id);
     }
 }

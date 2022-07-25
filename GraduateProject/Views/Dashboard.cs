@@ -14,6 +14,7 @@ namespace GraduateProject.Views
     public partial class Dashboard : Form
     {
         User user;
+        public static bool ManualAdd = false;
 
         public Dashboard(User user)
         {
@@ -23,8 +24,8 @@ namespace GraduateProject.Views
                 productsDashboardButton.Enabled = false;
             if (!user.AddProductPermission)
             {
-                manuallyAddProductButton.Enabled = false;
-                automaticallyAddProductButton.Enabled = false;
+                addProductButton.Enabled = false;
+                productSale.Enabled = false;
             }
             if (!user.EditUserPermission)
                 editUserButton.Enabled = false;
@@ -38,14 +39,6 @@ namespace GraduateProject.Views
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
-        }
-
-        private void manuallyAddProductButton_Click(object sender, EventArgs e)
-        {
-            AddProduct addProduct = new AddProduct(user);
-            Hide();
-            addProduct.ShowDialog();
-            Close();
         }
 
         private void editUserButton_Click(object sender, EventArgs e)
@@ -74,10 +67,26 @@ namespace GraduateProject.Views
 
         private void productsDashboardButton_Click(object sender, EventArgs e)
         {
-            ProductsDashboard productsDashboard = new ProductsDashboard();
+            ProductsDashboard productsDashboard = new ProductsDashboard(user);
             Hide();
             productsDashboard.ShowDialog();
             Close();
+        }
+
+        private void addProductButton_Click(object sender, EventArgs e)
+        {
+            AddProduct addProduct = new AddProduct(user);
+            Hide();
+            addProduct.ShowDialog();
+            Close();
+        }
+
+        private void manualAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualAdd == false)
+                ManualAdd = true;
+            else
+                ManualAdd = false;
         }
     }
 }

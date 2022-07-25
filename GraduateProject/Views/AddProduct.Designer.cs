@@ -49,6 +49,7 @@ namespace GraduateProject.Views
             this.productSize = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
+            this.scanButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             this.SuspendLayout();
@@ -184,7 +185,17 @@ namespace GraduateProject.Views
             // 
             // price
             // 
+            this.price.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.price.Location = new System.Drawing.Point(111, 253);
+            this.price.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.price.Name = "price";
             this.price.Size = new System.Drawing.Size(121, 20);
             this.price.TabIndex = 17;
@@ -272,11 +283,22 @@ namespace GraduateProject.Views
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // scanButton
+            // 
+            this.scanButton.Location = new System.Drawing.Point(239, 219);
+            this.scanButton.Name = "scanButton";
+            this.scanButton.Size = new System.Drawing.Size(71, 20);
+            this.scanButton.TabIndex = 26;
+            this.scanButton.Text = "Scan code";
+            this.scanButton.UseVisualStyleBackColor = true;
+            this.scanButton.Click += new System.EventHandler(this.scanButton_Click);
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 382);
+            this.Controls.Add(this.scanButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.textProductSize);
             this.Controls.Add(this.numberedProductSize);
@@ -331,5 +353,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.ComboBox productSize;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button scanButton;
     }
 }

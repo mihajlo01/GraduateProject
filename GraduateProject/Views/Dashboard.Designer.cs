@@ -30,12 +30,13 @@ namespace GraduateProject.Views
         private void InitializeComponent()
         {
             this.welcomeLabel = new System.Windows.Forms.Label();
-            this.manuallyAddProductButton = new System.Windows.Forms.Button();
-            this.automaticallyAddProductButton = new System.Windows.Forms.Button();
+            this.addProductButton = new System.Windows.Forms.Button();
+            this.productSale = new System.Windows.Forms.Button();
             this.productsDashboardButton = new System.Windows.Forms.Button();
             this.editUserButton = new System.Windows.Forms.Button();
             this.clock = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.manualAdd = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -48,33 +49,33 @@ namespace GraduateProject.Views
             this.welcomeLabel.TabIndex = 0;
             this.welcomeLabel.Text = "Welcome ";
             // 
-            // manuallyAddProductButton
+            // addProductButton
             // 
-            this.manuallyAddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manuallyAddProductButton.Location = new System.Drawing.Point(16, 69);
-            this.manuallyAddProductButton.Name = "manuallyAddProductButton";
-            this.manuallyAddProductButton.Size = new System.Drawing.Size(153, 30);
-            this.manuallyAddProductButton.TabIndex = 1;
-            this.manuallyAddProductButton.Text = "Manually Add Product ";
-            this.manuallyAddProductButton.UseVisualStyleBackColor = true;
-            this.manuallyAddProductButton.Click += new System.EventHandler(this.manuallyAddProductButton_Click);
+            this.addProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addProductButton.Location = new System.Drawing.Point(16, 69);
+            this.addProductButton.Name = "addProductButton";
+            this.addProductButton.Size = new System.Drawing.Size(106, 30);
+            this.addProductButton.TabIndex = 1;
+            this.addProductButton.Text = "Add Product ";
+            this.addProductButton.UseVisualStyleBackColor = true;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
-            // automaticallyAddProductButton
+            // productSale
             // 
-            this.automaticallyAddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.automaticallyAddProductButton.Location = new System.Drawing.Point(16, 105);
-            this.automaticallyAddProductButton.Name = "automaticallyAddProductButton";
-            this.automaticallyAddProductButton.Size = new System.Drawing.Size(177, 30);
-            this.automaticallyAddProductButton.TabIndex = 2;
-            this.automaticallyAddProductButton.Text = "Automatically Add Product ";
-            this.automaticallyAddProductButton.UseVisualStyleBackColor = true;
+            this.productSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productSale.Location = new System.Drawing.Point(16, 105);
+            this.productSale.Name = "productSale";
+            this.productSale.Size = new System.Drawing.Size(141, 30);
+            this.productSale.TabIndex = 2;
+            this.productSale.Text = "Sell Products";
+            this.productSale.UseVisualStyleBackColor = true;
             // 
             // productsDashboardButton
             // 
             this.productsDashboardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productsDashboardButton.Location = new System.Drawing.Point(16, 141);
             this.productsDashboardButton.Name = "productsDashboardButton";
-            this.productsDashboardButton.Size = new System.Drawing.Size(141, 30);
+            this.productsDashboardButton.Size = new System.Drawing.Size(157, 30);
             this.productsDashboardButton.TabIndex = 3;
             this.productsDashboardButton.Text = "Products Dashboard";
             this.productsDashboardButton.UseVisualStyleBackColor = true;
@@ -112,17 +113,29 @@ namespace GraduateProject.Views
             this.logOutButton.UseVisualStyleBackColor = true;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
+            // manualAdd
+            // 
+            this.manualAdd.AutoSize = true;
+            this.manualAdd.Location = new System.Drawing.Point(129, 76);
+            this.manualAdd.Name = "manualAdd";
+            this.manualAdd.Size = new System.Drawing.Size(130, 17);
+            this.manualAdd.TabIndex = 7;
+            this.manualAdd.Text = "Add Product Manually";
+            this.manualAdd.UseVisualStyleBackColor = true;
+            this.manualAdd.CheckedChanged += new System.EventHandler(this.manualAdd_CheckedChanged);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 274);
+            this.Controls.Add(this.manualAdd);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.clock);
             this.Controls.Add(this.editUserButton);
             this.Controls.Add(this.productsDashboardButton);
-            this.Controls.Add(this.automaticallyAddProductButton);
-            this.Controls.Add(this.manuallyAddProductButton);
+            this.Controls.Add(this.productSale);
+            this.Controls.Add(this.addProductButton);
             this.Controls.Add(this.welcomeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dashboard";
@@ -137,11 +150,12 @@ namespace GraduateProject.Views
         #endregion
 
         private System.Windows.Forms.Label welcomeLabel;
-        private System.Windows.Forms.Button manuallyAddProductButton;
-        private System.Windows.Forms.Button automaticallyAddProductButton;
+        private System.Windows.Forms.Button addProductButton;
+        private System.Windows.Forms.Button productSale;
         private System.Windows.Forms.Button productsDashboardButton;
         private System.Windows.Forms.Button editUserButton;
         private System.Windows.Forms.Label clock;
         private System.Windows.Forms.Button logOutButton;
+        private System.Windows.Forms.CheckBox manualAdd;
     }
 }

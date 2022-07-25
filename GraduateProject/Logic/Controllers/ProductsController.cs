@@ -1,6 +1,7 @@
 ﻿using GraduateProject.Logic.Interfaces;
 using GraduateProject.Logic.Models;
 using GraduateProject.Repository.Controllers;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,15 @@ namespace GraduateProject.Logic.Controllers
             Initialize();
             List<Product> products = await product.Find(x => true).ToListAsync();
             return products;
+        }
+
+        public bool RemoveProduct(ObjectId id)
+        {
+            var filter = Builders<Product>.Filter.Eq(s => s.Id, id);
+            if (product.FindOneAndDelete(filter) != null)
+                return true;
+            else
+                return false;
         }
     }
 }
