@@ -11,10 +11,12 @@ namespace GraduateProject.Views
     {
         User user;
         IProductsInterface productsInterface;
+        IUsersInterface usersInterface;
         public ProductsDashboard(User user)
         {
             InitializeComponent();
             productsInterface = new ProductsController();
+            usersInterface = new UsersController();
             this.user = user;
         }
 
@@ -25,8 +27,9 @@ namespace GraduateProject.Views
             userLabel.Text += user.Username;
             nameLabel.Text += user.Name;
             companyNameLabel.Text += user.CompanyName;
-            enteredProductsLabel.Text += user.ProductsCount;
-            selledProductsLabel.Text += user.SelledProductsCode.Count;
+            enteredProductsLabel.Text += user.EnteredProductCodes.Count;
+            selledProductsLabel.Text += user.SelledProductCodes.Count;
+            removedProductsLabel.Text += user.RemovedProductCodes.Count;
         }
 
         private void backToDashboard_Click(object sender, EventArgs e)
@@ -43,8 +46,18 @@ namespace GraduateProject.Views
             {
                 foreach (DataGridViewRow row in productsDataView.SelectedRows)
                 {
-                    if (await productsInterface.RemoveProduct((MongoDB.Bson.ObjectId)row.Cells[0].Value))
-                        continue;
+                    var removedProduct = await productsInterface.RemoveProduct((MongoDB.Bson.ObjectId)row.Cells[0].Value);
+                    if (removedProduct != null)
+                    {
+                        var fetchedUser = await usersInterface.GetUserByUsername(user.Username);
+                        fetchedUser.RemovedProductCodes.Add(removedProduct.ProductCode);
+                        if (fetchedUser != null)
+                        {
+                            await usersInterface.UpdateUser(fetchedUser._id, fetchedUser);
+                            user = await usersInterface.GetUserById(fetchedUser._id);
+                            removedProductsLabel.Text = "Removed Products:  " + user.RemovedProductCodes.Count;
+                        }
+                    }
                     else
                         MessageBox.Show("Product removement has failed!", "Failure", MessageBoxButtons.OK);
                 }

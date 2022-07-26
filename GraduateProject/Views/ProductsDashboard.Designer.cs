@@ -37,6 +37,7 @@ namespace GraduateProject.Views
             this.companyNameLabel = new System.Windows.Forms.Label();
             this.enteredProductsLabel = new System.Windows.Forms.Label();
             this.selledProductsLabel = new System.Windows.Forms.Label();
+            this.removedProductsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +124,22 @@ namespace GraduateProject.Views
             this.selledProductsLabel.TabIndex = 7;
             this.selledProductsLabel.Text = "Selled Products:  ";
             // 
+            // removedProductsLabel
+            // 
+            this.removedProductsLabel.AutoSize = true;
+            this.removedProductsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removedProductsLabel.Location = new System.Drawing.Point(12, 229);
+            this.removedProductsLabel.Name = "removedProductsLabel";
+            this.removedProductsLabel.Size = new System.Drawing.Size(133, 16);
+            this.removedProductsLabel.TabIndex = 8;
+            this.removedProductsLabel.Text = "Removed Products:  ";
+            // 
             // ProductsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1359, 450);
+            this.Controls.Add(this.removedProductsLabel);
             this.Controls.Add(this.selledProductsLabel);
             this.Controls.Add(this.enteredProductsLabel);
             this.Controls.Add(this.companyNameLabel);
@@ -157,5 +169,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.Label companyNameLabel;
         private System.Windows.Forms.Label enteredProductsLabel;
         private System.Windows.Forms.Label selledProductsLabel;
+        private System.Windows.Forms.Label removedProductsLabel;
     }
 }

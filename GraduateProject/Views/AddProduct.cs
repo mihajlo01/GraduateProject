@@ -95,10 +95,11 @@ namespace GraduateProject.Views
                 if (await productsInterface.InsertProduct(product))
                 {
                     var fetchedUser = await usersInterface.GetUserByUsername(user.Username);
-                    fetchedUser.ProductsCount += 1;
+                    fetchedUser.EnteredProductCodes.Add(product.ProductCode);
                     if (fetchedUser != null)
                     {
                         await usersInterface.UpdateUser(fetchedUser._id, fetchedUser);
+                        user = await usersInterface.GetUserById(fetchedUser._id);
                         MessageBox.Show("Product has been added successfully!", "Success!", MessageBoxButtons.OK);
                         refresh_Click(sender, e);
                     }
