@@ -38,10 +38,10 @@ namespace GraduateProject.Logic.Controllers
             return products;
         }
 
-        public bool RemoveProduct(ObjectId id)
+        public async Task<bool> RemoveProduct(ObjectId id)
         {
             var filter = Builders<Product>.Filter.Eq(s => s.Id, id);
-            if (product.FindOneAndDelete(filter) != null)
+            if (await product.FindOneAndDeleteAsync(filter) != null)
                 return true;
             else
                 return false;

@@ -88,7 +88,7 @@ namespace GraduateProject.Views
                         MessageBox.Show("Failed to update!", "Failure!", MessageBoxButtons.OK);
                 }
                 else
-                    MessageBox.Show("User is not found od the entered password is incorect!", "Failure!", MessageBoxButtons.OK);
+                    MessageBox.Show("User is not found or the entered password is incorect!", "Failure!", MessageBoxButtons.OK);
             }
         }
 
@@ -129,6 +129,41 @@ namespace GraduateProject.Views
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
+            }
+        }
+
+        private async void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text.Length < 1)
+            {
+                MessageBox.Show("Please enter your password in order to save the changes!", "Required password!", MessageBoxButtons.OK);
+                EditAcount dashboard = new EditAcount(user);
+                Hide();
+                dashboard.ShowDialog();
+                Close();
+            }
+            else
+            {
+                var oldUser = await usersInterface.ValidateUserLogin(user.Username, textBoxPassword.Text);
+                if (oldUser != null)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure that you want to delete this user?", "Delete User", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (await usersInterface.DeleteUser(user._id))
+                        {
+                            MessageBox.Show("User has been deleted successfully!", "Success", MessageBoxButtons.OK);
+                            Login login = new Login();
+                            Hide();
+                            login.ShowDialog();
+                            Close();
+                        }
+                    }
+                    else
+                        return;
+                }
+                else
+                    MessageBox.Show("User is not found or the entered password is incorect!", "Failure!", MessageBoxButtons.OK);
             }
         }
     }

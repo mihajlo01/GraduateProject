@@ -87,5 +87,14 @@ namespace GraduateProject.Logic.Controllers
 
             return result;
         }
+
+        public async Task<bool> DeleteUser(ObjectId id)
+        {
+            var filter = Builders<User>.Filter.Eq(s => s._id, id);
+            if (await user.FindOneAndDeleteAsync(filter) != null)
+                return true;
+            else
+                return false;
+        }
     }
 }

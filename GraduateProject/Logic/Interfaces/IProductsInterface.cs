@@ -12,6 +12,6 @@ namespace GraduateProject.Logic.Interfaces
     {
         Task<bool> InsertProduct(Product productToInsert);
         Task<List<Product>> GetAllProducts();
-        bool RemoveProduct(ObjectId id);
+        Task<bool> RemoveProduct(ObjectId id);
     }
 }

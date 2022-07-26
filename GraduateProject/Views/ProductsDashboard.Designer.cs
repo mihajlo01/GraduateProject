@@ -32,6 +32,11 @@ namespace GraduateProject.Views
             this.productsDataView = new System.Windows.Forms.DataGridView();
             this.backToDashboard = new System.Windows.Forms.Button();
             this.removeSelectedProducts = new System.Windows.Forms.Button();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.companyNameLabel = new System.Windows.Forms.Label();
+            this.enteredProductsLabel = new System.Windows.Forms.Label();
+            this.selledProductsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,10 +53,10 @@ namespace GraduateProject.Views
             // 
             // backToDashboard
             // 
-            this.backToDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backToDashboard.Location = new System.Drawing.Point(13, 22);
+            this.backToDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backToDashboard.Location = new System.Drawing.Point(12, 261);
             this.backToDashboard.Name = "backToDashboard";
-            this.backToDashboard.Size = new System.Drawing.Size(134, 31);
+            this.backToDashboard.Size = new System.Drawing.Size(155, 32);
             this.backToDashboard.TabIndex = 1;
             this.backToDashboard.Text = "Back To Dashboard";
             this.backToDashboard.UseVisualStyleBackColor = true;
@@ -59,20 +64,75 @@ namespace GraduateProject.Views
             // 
             // removeSelectedProducts
             // 
-            this.removeSelectedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeSelectedProducts.Location = new System.Drawing.Point(13, 59);
+            this.removeSelectedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeSelectedProducts.Location = new System.Drawing.Point(12, 299);
             this.removeSelectedProducts.Name = "removeSelectedProducts";
-            this.removeSelectedProducts.Size = new System.Drawing.Size(173, 31);
+            this.removeSelectedProducts.Size = new System.Drawing.Size(184, 32);
             this.removeSelectedProducts.TabIndex = 2;
             this.removeSelectedProducts.Text = "Remove Selected Products";
             this.removeSelectedProducts.UseVisualStyleBackColor = true;
             this.removeSelectedProducts.Click += new System.EventHandler(this.removeSelectedProducts_Click);
+            // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLabel.Location = new System.Drawing.Point(12, 74);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(46, 16);
+            this.userLabel.TabIndex = 3;
+            this.userLabel.Text = "User:  ";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(12, 103);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(54, 16);
+            this.nameLabel.TabIndex = 4;
+            this.nameLabel.Text = "Name:  ";
+            // 
+            // companyNameLabel
+            // 
+            this.companyNameLabel.AutoSize = true;
+            this.companyNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyNameLabel.Location = new System.Drawing.Point(12, 134);
+            this.companyNameLabel.Name = "companyNameLabel";
+            this.companyNameLabel.Size = new System.Drawing.Size(69, 16);
+            this.companyNameLabel.TabIndex = 5;
+            this.companyNameLabel.Text = "C. Name:  ";
+            // 
+            // enteredProductsLabel
+            // 
+            this.enteredProductsLabel.AutoSize = true;
+            this.enteredProductsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enteredProductsLabel.Location = new System.Drawing.Point(12, 166);
+            this.enteredProductsLabel.Name = "enteredProductsLabel";
+            this.enteredProductsLabel.Size = new System.Drawing.Size(120, 16);
+            this.enteredProductsLabel.TabIndex = 6;
+            this.enteredProductsLabel.Text = "Entered Products:  ";
+            // 
+            // selledProductsLabel
+            // 
+            this.selledProductsLabel.AutoSize = true;
+            this.selledProductsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selledProductsLabel.Location = new System.Drawing.Point(12, 198);
+            this.selledProductsLabel.Name = "selledProductsLabel";
+            this.selledProductsLabel.Size = new System.Drawing.Size(112, 16);
+            this.selledProductsLabel.TabIndex = 7;
+            this.selledProductsLabel.Text = "Selled Products:  ";
             // 
             // ProductsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1359, 450);
+            this.Controls.Add(this.selledProductsLabel);
+            this.Controls.Add(this.enteredProductsLabel);
+            this.Controls.Add(this.companyNameLabel);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.removeSelectedProducts);
             this.Controls.Add(this.backToDashboard);
             this.Controls.Add(this.productsDataView);
@@ -83,6 +143,7 @@ namespace GraduateProject.Views
             this.Load += new System.EventHandler(this.ProductsDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsDataView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,5 +152,10 @@ namespace GraduateProject.Views
         private System.Windows.Forms.DataGridView productsDataView;
         private System.Windows.Forms.Button backToDashboard;
         private System.Windows.Forms.Button removeSelectedProducts;
+        private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label companyNameLabel;
+        private System.Windows.Forms.Label enteredProductsLabel;
+        private System.Windows.Forms.Label selledProductsLabel;
     }
 }

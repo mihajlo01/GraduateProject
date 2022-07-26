@@ -2,6 +2,7 @@
 using GraduateProject.Logic.Interfaces;
 using GraduateProject.Models;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GraduateProject.Views
@@ -21,6 +22,11 @@ namespace GraduateProject.Views
         {
             var products = await productsInterface.GetAllProducts();
             productsDataView.DataSource = products;
+            userLabel.Text += user.Username;
+            nameLabel.Text += user.Name;
+            companyNameLabel.Text += user.CompanyName;
+            enteredProductsLabel.Text += user.ProductsCount;
+            selledProductsLabel.Text += user.SelledProductsCode.Count;
         }
 
         private void backToDashboard_Click(object sender, EventArgs e)
@@ -37,7 +43,7 @@ namespace GraduateProject.Views
             {
                 foreach (DataGridViewRow row in productsDataView.SelectedRows)
                 {
-                    if (productsInterface.RemoveProduct((MongoDB.Bson.ObjectId)row.Cells[0].Value))
+                    if (await productsInterface.RemoveProduct((MongoDB.Bson.ObjectId)row.Cells[0].Value))
                         continue;
                     else
                         MessageBox.Show("Product removement has failed!", "Failure", MessageBoxButtons.OK);

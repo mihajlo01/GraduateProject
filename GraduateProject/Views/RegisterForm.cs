@@ -2,6 +2,7 @@
 using GraduateProject.Logic.Interfaces;
 using GraduateProject.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GraduateProject
@@ -27,6 +28,7 @@ namespace GraduateProject
                 CompanyName = textBoxCompanyName.Text,
                 Password = textBoxPassword.Text,
                 ProductsCount = 0,
+                SelledProductsCode = new List<long>(),
                 EditUserPermission = editUserPermission.Checked,
                 AddProductPermission = addProductsPermission.Checked,
                 RemoveProductPermission = removeProductsPermission.Checked,

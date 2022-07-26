@@ -14,5 +14,6 @@ namespace GraduateProject.Logic.Interfaces
         Task<User> GetUserByUsername(string username);
         Task<User> GetUserById(ObjectId id);
         Task<ReplaceOneResult> UpdateUser(ObjectId id, User userToUpdate);
+        Task<bool> DeleteUser(ObjectId id);
     }
 }

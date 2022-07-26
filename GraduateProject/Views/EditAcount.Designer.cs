@@ -46,11 +46,12 @@ namespace GraduateProject.Views
             this.removeProductsPermission = new System.Windows.Forms.CheckBox();
             this.addProductsPermission = new System.Windows.Forms.CheckBox();
             this.editUserPermission = new System.Windows.Forms.CheckBox();
+            this.deleteUserButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // backToDashboardButton
             // 
-            this.backToDashboardButton.Location = new System.Drawing.Point(49, 356);
+            this.backToDashboardButton.Location = new System.Drawing.Point(12, 356);
             this.backToDashboardButton.Name = "backToDashboardButton";
             this.backToDashboardButton.Size = new System.Drawing.Size(108, 27);
             this.backToDashboardButton.TabIndex = 19;
@@ -60,7 +61,7 @@ namespace GraduateProject.Views
             // 
             // saveChangesButton
             // 
-            this.saveChangesButton.Location = new System.Drawing.Point(175, 356);
+            this.saveChangesButton.Location = new System.Drawing.Point(126, 356);
             this.saveChangesButton.Name = "saveChangesButton";
             this.saveChangesButton.Size = new System.Drawing.Size(84, 27);
             this.saveChangesButton.TabIndex = 18;
@@ -215,11 +216,22 @@ namespace GraduateProject.Views
             this.editUserPermission.Text = "Edit User";
             this.editUserPermission.UseVisualStyleBackColor = true;
             // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.Location = new System.Drawing.Point(216, 356);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(84, 27);
+            this.deleteUserButton.TabIndex = 27;
+            this.deleteUserButton.Text = "Delete User";
+            this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
+            // 
             // EditAcount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 408);
+            this.Controls.Add(this.deleteUserButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.productDashboardPermission);
             this.Controls.Add(this.removeProductsPermission);
@@ -266,5 +278,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.CheckBox removeProductsPermission;
         private System.Windows.Forms.CheckBox addProductsPermission;
         private System.Windows.Forms.CheckBox editUserPermission;
+        private System.Windows.Forms.Button deleteUserButton;
     }
 }
