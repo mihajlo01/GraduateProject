@@ -25,7 +25,6 @@ namespace GraduateProject.Views
             if (!user.AddProductPermission)
             {
                 addProductButton.Enabled = false;
-                productSale.Enabled = false;
             }
             if (!user.EditUserPermission)
                 editUserButton.Enabled = false;

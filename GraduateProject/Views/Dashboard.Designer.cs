@@ -31,7 +31,6 @@ namespace GraduateProject.Views
         {
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.addProductButton = new System.Windows.Forms.Button();
-            this.productSale = new System.Windows.Forms.Button();
             this.productsDashboardButton = new System.Windows.Forms.Button();
             this.editUserButton = new System.Windows.Forms.Button();
             this.clock = new System.Windows.Forms.Label();
@@ -60,20 +59,10 @@ namespace GraduateProject.Views
             this.addProductButton.UseVisualStyleBackColor = true;
             this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
-            // productSale
-            // 
-            this.productSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productSale.Location = new System.Drawing.Point(16, 105);
-            this.productSale.Name = "productSale";
-            this.productSale.Size = new System.Drawing.Size(141, 30);
-            this.productSale.TabIndex = 2;
-            this.productSale.Text = "Sell Products";
-            this.productSale.UseVisualStyleBackColor = true;
-            // 
             // productsDashboardButton
             // 
             this.productsDashboardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productsDashboardButton.Location = new System.Drawing.Point(16, 141);
+            this.productsDashboardButton.Location = new System.Drawing.Point(16, 105);
             this.productsDashboardButton.Name = "productsDashboardButton";
             this.productsDashboardButton.Size = new System.Drawing.Size(157, 30);
             this.productsDashboardButton.TabIndex = 3;
@@ -84,7 +73,7 @@ namespace GraduateProject.Views
             // editUserButton
             // 
             this.editUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editUserButton.Location = new System.Drawing.Point(16, 177);
+            this.editUserButton.Location = new System.Drawing.Point(16, 141);
             this.editUserButton.Name = "editUserButton";
             this.editUserButton.Size = new System.Drawing.Size(89, 30);
             this.editUserButton.TabIndex = 4;
@@ -105,7 +94,7 @@ namespace GraduateProject.Views
             // logOutButton
             // 
             this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOutButton.Location = new System.Drawing.Point(16, 213);
+            this.logOutButton.Location = new System.Drawing.Point(16, 177);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(89, 30);
             this.logOutButton.TabIndex = 6;
@@ -128,13 +117,12 @@ namespace GraduateProject.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 274);
+            this.ClientSize = new System.Drawing.Size(412, 227);
             this.Controls.Add(this.manualAdd);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.clock);
             this.Controls.Add(this.editUserButton);
             this.Controls.Add(this.productsDashboardButton);
-            this.Controls.Add(this.productSale);
             this.Controls.Add(this.addProductButton);
             this.Controls.Add(this.welcomeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -151,7 +139,6 @@ namespace GraduateProject.Views
 
         private System.Windows.Forms.Label welcomeLabel;
         private System.Windows.Forms.Button addProductButton;
-        private System.Windows.Forms.Button productSale;
         private System.Windows.Forms.Button productsDashboardButton;
         private System.Windows.Forms.Button editUserButton;
         private System.Windows.Forms.Label clock;

@@ -38,6 +38,7 @@ namespace GraduateProject.Views
             this.enteredProductsLabel = new System.Windows.Forms.Label();
             this.selledProductsLabel = new System.Windows.Forms.Label();
             this.removedProductsLabel = new System.Windows.Forms.Label();
+            this.productInformationButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@ namespace GraduateProject.Views
             // backToDashboard
             // 
             this.backToDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backToDashboard.Location = new System.Drawing.Point(12, 261);
+            this.backToDashboard.Location = new System.Drawing.Point(12, 296);
             this.backToDashboard.Name = "backToDashboard";
             this.backToDashboard.Size = new System.Drawing.Size(155, 32);
             this.backToDashboard.TabIndex = 1;
@@ -66,7 +67,7 @@ namespace GraduateProject.Views
             // removeSelectedProducts
             // 
             this.removeSelectedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeSelectedProducts.Location = new System.Drawing.Point(12, 299);
+            this.removeSelectedProducts.Location = new System.Drawing.Point(12, 334);
             this.removeSelectedProducts.Name = "removeSelectedProducts";
             this.removeSelectedProducts.Size = new System.Drawing.Size(184, 32);
             this.removeSelectedProducts.TabIndex = 2;
@@ -134,11 +135,23 @@ namespace GraduateProject.Views
             this.removedProductsLabel.TabIndex = 8;
             this.removedProductsLabel.Text = "Removed Products:  ";
             // 
+            // productInformationButton
+            // 
+            this.productInformationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productInformationButton.Location = new System.Drawing.Point(12, 258);
+            this.productInformationButton.Name = "productInformationButton";
+            this.productInformationButton.Size = new System.Drawing.Size(155, 32);
+            this.productInformationButton.TabIndex = 9;
+            this.productInformationButton.Text = "Product Information";
+            this.productInformationButton.UseVisualStyleBackColor = true;
+            this.productInformationButton.Click += new System.EventHandler(this.productInformationButton_Click);
+            // 
             // ProductsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1359, 450);
+            this.Controls.Add(this.productInformationButton);
             this.Controls.Add(this.removedProductsLabel);
             this.Controls.Add(this.selledProductsLabel);
             this.Controls.Add(this.enteredProductsLabel);
@@ -170,5 +183,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.Label enteredProductsLabel;
         private System.Windows.Forms.Label selledProductsLabel;
         private System.Windows.Forms.Label removedProductsLabel;
+        private System.Windows.Forms.Button productInformationButton;
     }
 }

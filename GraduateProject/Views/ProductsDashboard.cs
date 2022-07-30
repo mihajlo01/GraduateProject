@@ -1,5 +1,6 @@
 ﻿using GraduateProject.Logic.Controllers;
 using GraduateProject.Logic.Interfaces;
+using GraduateProject.Logic.Models;
 using GraduateProject.Models;
 using System;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace GraduateProject.Views
         User user;
         IProductsInterface productsInterface;
         IUsersInterface usersInterface;
+        public static string ProductCode = "0";
         public ProductsDashboard(User user)
         {
             InitializeComponent();
@@ -67,6 +69,25 @@ namespace GraduateProject.Views
             }
             else
                 MessageBox.Show("Please select products to remove!", "Failure", MessageBoxButtons.OK);
+        }
+
+        private void productInformationButton_Click(object sender, EventArgs e)
+        {
+            Scanner scanner = new Scanner();
+            scanner.ShowDialog();
+            ProductCode = Scanner.SetProductCode;
+            Product product = productsInterface.GetProductByProductCode((long)Convert.ToInt64(ProductCode)).Result;
+            if (product != null)
+            {
+                ProductInformation productInformation = new ProductInformation(product, user);
+                Hide();
+                productInformation.ShowDialog();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Product could not be found!", "Failure!", MessageBoxButtons.OK);
+            }
         }
     }
 }

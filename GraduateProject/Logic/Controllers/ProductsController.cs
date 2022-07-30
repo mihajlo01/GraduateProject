@@ -38,6 +38,17 @@ namespace GraduateProject.Logic.Controllers
             return products;
         }
 
+        public async Task<Product> GetProductByProductCode(long productCode)
+        {
+            Initialize();
+            var fetchedProduct = await product.Find(x => x.ProductCode == productCode).FirstOrDefaultAsync();
+
+            if (fetchedProduct != null)
+                return fetchedProduct;
+
+            return null;
+        }
+
         public async Task<Product> RemoveProduct(ObjectId id)
         {
             var filter = Builders<Product>.Filter.Eq(s => s.Id, id);
