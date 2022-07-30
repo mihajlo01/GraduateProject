@@ -39,6 +39,7 @@ namespace GraduateProject.Views
             this.selledProductsLabel = new System.Windows.Forms.Label();
             this.removedProductsLabel = new System.Windows.Forms.Label();
             this.productInformationButton = new System.Windows.Forms.Button();
+            this.scanToRemoveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace GraduateProject.Views
             // backToDashboard
             // 
             this.backToDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backToDashboard.Location = new System.Drawing.Point(12, 296);
+            this.backToDashboard.Location = new System.Drawing.Point(14, 359);
             this.backToDashboard.Name = "backToDashboard";
             this.backToDashboard.Size = new System.Drawing.Size(155, 32);
             this.backToDashboard.TabIndex = 1;
@@ -67,7 +68,7 @@ namespace GraduateProject.Views
             // removeSelectedProducts
             // 
             this.removeSelectedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeSelectedProducts.Location = new System.Drawing.Point(12, 334);
+            this.removeSelectedProducts.Location = new System.Drawing.Point(14, 283);
             this.removeSelectedProducts.Name = "removeSelectedProducts";
             this.removeSelectedProducts.Size = new System.Drawing.Size(184, 32);
             this.removeSelectedProducts.TabIndex = 2;
@@ -79,7 +80,7 @@ namespace GraduateProject.Views
             // 
             this.userLabel.AutoSize = true;
             this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLabel.Location = new System.Drawing.Point(12, 74);
+            this.userLabel.Location = new System.Drawing.Point(12, 61);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(46, 16);
             this.userLabel.TabIndex = 3;
@@ -89,7 +90,7 @@ namespace GraduateProject.Views
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(12, 103);
+            this.nameLabel.Location = new System.Drawing.Point(12, 90);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(54, 16);
             this.nameLabel.TabIndex = 4;
@@ -99,7 +100,7 @@ namespace GraduateProject.Views
             // 
             this.companyNameLabel.AutoSize = true;
             this.companyNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyNameLabel.Location = new System.Drawing.Point(12, 134);
+            this.companyNameLabel.Location = new System.Drawing.Point(12, 121);
             this.companyNameLabel.Name = "companyNameLabel";
             this.companyNameLabel.Size = new System.Drawing.Size(69, 16);
             this.companyNameLabel.TabIndex = 5;
@@ -109,7 +110,7 @@ namespace GraduateProject.Views
             // 
             this.enteredProductsLabel.AutoSize = true;
             this.enteredProductsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enteredProductsLabel.Location = new System.Drawing.Point(12, 166);
+            this.enteredProductsLabel.Location = new System.Drawing.Point(12, 153);
             this.enteredProductsLabel.Name = "enteredProductsLabel";
             this.enteredProductsLabel.Size = new System.Drawing.Size(120, 16);
             this.enteredProductsLabel.TabIndex = 6;
@@ -119,7 +120,7 @@ namespace GraduateProject.Views
             // 
             this.selledProductsLabel.AutoSize = true;
             this.selledProductsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selledProductsLabel.Location = new System.Drawing.Point(12, 198);
+            this.selledProductsLabel.Location = new System.Drawing.Point(12, 185);
             this.selledProductsLabel.Name = "selledProductsLabel";
             this.selledProductsLabel.Size = new System.Drawing.Size(112, 16);
             this.selledProductsLabel.TabIndex = 7;
@@ -129,7 +130,7 @@ namespace GraduateProject.Views
             // 
             this.removedProductsLabel.AutoSize = true;
             this.removedProductsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removedProductsLabel.Location = new System.Drawing.Point(12, 229);
+            this.removedProductsLabel.Location = new System.Drawing.Point(12, 216);
             this.removedProductsLabel.Name = "removedProductsLabel";
             this.removedProductsLabel.Size = new System.Drawing.Size(133, 16);
             this.removedProductsLabel.TabIndex = 8;
@@ -138,7 +139,7 @@ namespace GraduateProject.Views
             // productInformationButton
             // 
             this.productInformationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productInformationButton.Location = new System.Drawing.Point(12, 258);
+            this.productInformationButton.Location = new System.Drawing.Point(11, 245);
             this.productInformationButton.Name = "productInformationButton";
             this.productInformationButton.Size = new System.Drawing.Size(155, 32);
             this.productInformationButton.TabIndex = 9;
@@ -146,11 +147,23 @@ namespace GraduateProject.Views
             this.productInformationButton.UseVisualStyleBackColor = true;
             this.productInformationButton.Click += new System.EventHandler(this.productInformationButton_Click);
             // 
+            // scanToRemoveButton
+            // 
+            this.scanToRemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scanToRemoveButton.Location = new System.Drawing.Point(14, 321);
+            this.scanToRemoveButton.Name = "scanToRemoveButton";
+            this.scanToRemoveButton.Size = new System.Drawing.Size(155, 32);
+            this.scanToRemoveButton.TabIndex = 10;
+            this.scanToRemoveButton.Text = "Scan To Remove";
+            this.scanToRemoveButton.UseVisualStyleBackColor = true;
+            this.scanToRemoveButton.Click += new System.EventHandler(this.scanToRemoveButton_Click);
+            // 
             // ProductsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1359, 450);
+            this.Controls.Add(this.scanToRemoveButton);
             this.Controls.Add(this.productInformationButton);
             this.Controls.Add(this.removedProductsLabel);
             this.Controls.Add(this.selledProductsLabel);
@@ -184,5 +197,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.Label selledProductsLabel;
         private System.Windows.Forms.Label removedProductsLabel;
         private System.Windows.Forms.Button productInformationButton;
+        private System.Windows.Forms.Button scanToRemoveButton;
     }
 }

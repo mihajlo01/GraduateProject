@@ -32,9 +32,21 @@ namespace GraduateProject.Views
 
         private void Scanner_Load(object sender, EventArgs e)
         {
-            if(IsRemove)
+            if(!IsRemove)
             {
-                //Scanner.ActiveForm.Size = new Size().Height =;
+                Size = new Size(278, 118);
+                orLabel.Visible = false;
+                enterProductManuallyLabel.Visible = false;
+                manualProductCode.Visible = false;
+            }
+        }
+
+        private void manualProductCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                SetProductCode = manualProductCode.Text;
+                Close();
             }
         }
     }

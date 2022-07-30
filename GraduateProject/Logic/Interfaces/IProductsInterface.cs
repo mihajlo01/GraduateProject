@@ -1,9 +1,7 @@
 ﻿using GraduateProject.Logic.Models;
 using MongoDB.Bson;
-using System;
+using MongoDB.Driver;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace GraduateProject.Logic.Interfaces
@@ -14,5 +12,6 @@ namespace GraduateProject.Logic.Interfaces
         Task<List<Product>> GetAllProducts();
         Task<Product> GetProductByProductCode(long productCode);
         Task<Product> RemoveProduct(ObjectId id);
+        Task<ReplaceOneResult> UpdateProduct(Product productToUpdate, int quantity = 0);
     }
 }

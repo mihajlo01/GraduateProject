@@ -58,5 +58,14 @@ namespace GraduateProject.Logic.Controllers
             else
                 return null;
         }
+
+        public async Task<ReplaceOneResult> UpdateProduct(Product productToUpdate, int quantity = 0)
+        {
+            var filter = Builders<Product>.Filter.Eq(x => x.Id, productToUpdate.Id);
+            if (quantity != 0)
+                productToUpdate.Quantity = quantity;
+
+            return await product.ReplaceOneAsync(filter, productToUpdate);
+        }
     }
 }

@@ -73,7 +73,7 @@ namespace GraduateProject.Views
 
         private async void productInformationButton_Click(object sender, EventArgs e)
         {
-            Scanner scanner = new Scanner();
+            Scanner scanner = new Scanner(true);
             scanner.ShowDialog();
             ProductCode = Scanner.SetProductCode;
             Product product = await productsInterface.GetProductByProductCode((long)Convert.ToInt64(ProductCode));
@@ -88,6 +88,18 @@ namespace GraduateProject.Views
             {
                 MessageBox.Show("Product could not be found!", "Failure!", MessageBoxButtons.OK);
             }
+        }
+
+        private async void scanToRemoveButton_Click(object sender, EventArgs e)
+        {
+            Scanner scanner = new Scanner(true);
+            scanner.ShowDialog();
+            ProductCode = Scanner.SetProductCode;
+            Product product = await productsInterface.GetProductByProductCode((long)Convert.ToInt64(ProductCode));
+            RemoveScanned removeScanned = new RemoveScanned(product, user);
+            Hide();
+            removeScanned.ShowDialog();
+            Close();
         }
     }
 }

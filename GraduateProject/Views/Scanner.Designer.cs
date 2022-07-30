@@ -31,15 +31,19 @@ namespace GraduateProject.Views
         {
             this.scannedCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.enterProductManuallyLabel = new System.Windows.Forms.Label();
+            this.manualProductCode = new System.Windows.Forms.TextBox();
+            this.orLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // scannedCode
             // 
-            this.scannedCode.Location = new System.Drawing.Point(35, 42);
+            this.scannedCode.BackColor = System.Drawing.SystemColors.Menu;
+            this.scannedCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.scannedCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.scannedCode.Location = new System.Drawing.Point(-42, -11);
             this.scannedCode.Name = "scannedCode";
-            this.scannedCode.Size = new System.Drawing.Size(184, 20);
+            this.scannedCode.Size = new System.Drawing.Size(184, 13);
             this.scannedCode.TabIndex = 0;
             this.scannedCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.scannedCode_KeyDown);
             // 
@@ -47,37 +51,49 @@ namespace GraduateProject.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 18);
+            this.label1.Location = new System.Drawing.Point(38, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 15);
+            this.label1.Size = new System.Drawing.Size(150, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Please use your barcode scanner";
+            this.label1.Text = "Use your barcode scanner";
             // 
-            // label2
+            // enterProductManuallyLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Enter Product Manually:";
+            this.enterProductManuallyLabel.AutoSize = true;
+            this.enterProductManuallyLabel.Location = new System.Drawing.Point(38, 68);
+            this.enterProductManuallyLabel.Name = "enterProductManuallyLabel";
+            this.enterProductManuallyLabel.Size = new System.Drawing.Size(120, 13);
+            this.enterProductManuallyLabel.TabIndex = 2;
+            this.enterProductManuallyLabel.Text = "Enter Product Manually:";
             // 
-            // textBox1
+            // manualProductCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 20);
-            this.textBox1.TabIndex = 3;
+            this.manualProductCode.Location = new System.Drawing.Point(41, 85);
+            this.manualProductCode.Name = "manualProductCode";
+            this.manualProductCode.Size = new System.Drawing.Size(183, 20);
+            this.manualProductCode.TabIndex = 3;
+            this.manualProductCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.manualProductCode_KeyDown);
+            // 
+            // orLabel
+            // 
+            this.orLabel.AutoSize = true;
+            this.orLabel.Location = new System.Drawing.Point(38, 51);
+            this.orLabel.Name = "orLabel";
+            this.orLabel.Size = new System.Drawing.Size(23, 13);
+            this.orLabel.TabIndex = 4;
+            this.orLabel.Text = "OR";
             // 
             // Scanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 135);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(262, 133);
+            this.Controls.Add(this.orLabel);
+            this.Controls.Add(this.manualProductCode);
+            this.Controls.Add(this.enterProductManuallyLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.scannedCode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Scanner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Scanner";
@@ -91,7 +107,8 @@ namespace GraduateProject.Views
 
         private System.Windows.Forms.TextBox scannedCode;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label enterProductManuallyLabel;
+        private System.Windows.Forms.TextBox manualProductCode;
+        private System.Windows.Forms.Label orLabel;
     }
 }

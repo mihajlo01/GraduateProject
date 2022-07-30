@@ -157,6 +157,7 @@ namespace GraduateProject.Views
             this.Controls.Add(this.productSizeLabel);
             this.Controls.Add(this.providerLabel);
             this.Controls.Add(this.productTypeLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ProductInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Information";
