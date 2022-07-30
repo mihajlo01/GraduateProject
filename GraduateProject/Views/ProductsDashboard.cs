@@ -71,12 +71,12 @@ namespace GraduateProject.Views
                 MessageBox.Show("Please select products to remove!", "Failure", MessageBoxButtons.OK);
         }
 
-        private void productInformationButton_Click(object sender, EventArgs e)
+        private async void productInformationButton_Click(object sender, EventArgs e)
         {
             Scanner scanner = new Scanner();
             scanner.ShowDialog();
             ProductCode = Scanner.SetProductCode;
-            Product product = productsInterface.GetProductByProductCode((long)Convert.ToInt64(ProductCode)).Result;
+            Product product = await productsInterface.GetProductByProductCode((long)Convert.ToInt64(ProductCode));
             if (product != null)
             {
                 ProductInformation productInformation = new ProductInformation(product, user);

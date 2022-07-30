@@ -45,7 +45,7 @@ namespace GraduateProject.Views
             // 
             this.productTypeLabel.AutoSize = true;
             this.productTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productTypeLabel.Location = new System.Drawing.Point(47, 51);
+            this.productTypeLabel.Location = new System.Drawing.Point(12, 55);
             this.productTypeLabel.Name = "productTypeLabel";
             this.productTypeLabel.Size = new System.Drawing.Size(84, 15);
             this.productTypeLabel.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace GraduateProject.Views
             // 
             this.providerLabel.AutoSize = true;
             this.providerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.providerLabel.Location = new System.Drawing.Point(73, 79);
+            this.providerLabel.Location = new System.Drawing.Point(12, 81);
             this.providerLabel.Name = "providerLabel";
             this.providerLabel.Size = new System.Drawing.Size(58, 15);
             this.providerLabel.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace GraduateProject.Views
             // 
             this.productSizeLabel.AutoSize = true;
             this.productSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productSizeLabel.Location = new System.Drawing.Point(49, 104);
+            this.productSizeLabel.Location = new System.Drawing.Point(12, 107);
             this.productSizeLabel.Name = "productSizeLabel";
             this.productSizeLabel.Size = new System.Drawing.Size(82, 15);
             this.productSizeLabel.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace GraduateProject.Views
             // 
             this.quantityLabel.AutoSize = true;
             this.quantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityLabel.Location = new System.Drawing.Point(74, 130);
+            this.quantityLabel.Location = new System.Drawing.Point(12, 133);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(57, 15);
             this.quantityLabel.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace GraduateProject.Views
             // 
             this.colorLabel.AutoSize = true;
             this.colorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorLabel.Location = new System.Drawing.Point(89, 157);
+            this.colorLabel.Location = new System.Drawing.Point(12, 158);
             this.colorLabel.Name = "colorLabel";
             this.colorLabel.Size = new System.Drawing.Size(42, 15);
             this.colorLabel.TabIndex = 4;
@@ -95,7 +95,7 @@ namespace GraduateProject.Views
             // 
             this.productCodeLabel.AutoSize = true;
             this.productCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productCodeLabel.Location = new System.Drawing.Point(44, 183);
+            this.productCodeLabel.Location = new System.Drawing.Point(12, 183);
             this.productCodeLabel.Name = "productCodeLabel";
             this.productCodeLabel.Size = new System.Drawing.Size(87, 15);
             this.productCodeLabel.TabIndex = 5;
@@ -105,7 +105,7 @@ namespace GraduateProject.Views
             // 
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLabel.Location = new System.Drawing.Point(90, 210);
+            this.priceLabel.Location = new System.Drawing.Point(12, 209);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(41, 15);
             this.priceLabel.TabIndex = 6;
@@ -158,7 +158,8 @@ namespace GraduateProject.Views
             this.Controls.Add(this.providerLabel);
             this.Controls.Add(this.productTypeLabel);
             this.Name = "ProductInformation";
-            this.Text = "ProductInformation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Information";
             this.Load += new System.EventHandler(this.ProductInformation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
