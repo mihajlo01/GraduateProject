@@ -36,6 +36,7 @@ namespace GraduateProject.Views
             this.quantity = new System.Windows.Forms.NumericUpDown();
             this.backButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +85,7 @@ namespace GraduateProject.Views
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(30, 118);
+            this.backButton.Location = new System.Drawing.Point(30, 129);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 5;
@@ -94,7 +95,7 @@ namespace GraduateProject.Views
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(111, 118);
+            this.removeButton.Location = new System.Drawing.Point(111, 129);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 6;
@@ -102,11 +103,22 @@ namespace GraduateProject.Views
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 12);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Set quantity to 0 to fully remove product!";
+            // 
             // RemoveScanned
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(216, 151);
+            this.ClientSize = new System.Drawing.Size(216, 168);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.quantity);
@@ -134,5 +146,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.NumericUpDown quantity;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -82,6 +82,7 @@ namespace GraduateProject.Logic.Controllers
 
         public async Task<ReplaceOneResult> UpdateUser(ObjectId id, User userToUpdate)
         {
+            Initialize();
             var filter = Builders<User>.Filter.Eq(s => s._id, id);
             var result = await user.ReplaceOneAsync(filter, userToUpdate);
 
@@ -90,6 +91,7 @@ namespace GraduateProject.Logic.Controllers
 
         public async Task<bool> DeleteUser(ObjectId id)
         {
+            Initialize();
             var filter = Builders<User>.Filter.Eq(s => s._id, id);
             if (await user.FindOneAndDeleteAsync(filter) != null)
                 return true;

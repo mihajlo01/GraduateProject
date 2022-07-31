@@ -159,7 +159,6 @@
     <Compile Include="Logic\Controllers\PasswordController.cs" />
     <Compile Include="Logic\Controllers\ProductsController.cs" />
     <Compile Include="Logic\Controllers\UsersController.cs" />
-    <Compile Include="Logic\Enums\ProductTypeEnum.cs" />
     <Compile Include="Logic\Interfaces\IMongoDbInterface.cs" />
     <Compile Include="Logic\Interfaces\IProductsInterface.cs" />
     <Compile Include="Logic\Interfaces\IUsersInterface.cs" />

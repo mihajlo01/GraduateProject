@@ -38,7 +38,7 @@ namespace GraduateProject.Logic.Controllers
             return products;
         }
 
-        public async Task<Product> GetProductByProductCode(long productCode)
+        public async Task<Product> GetProductByProductCode(string productCode)
         {
             Initialize();
             var fetchedProduct = await product.Find(x => x.ProductCode == productCode).FirstOrDefaultAsync();
@@ -51,6 +51,7 @@ namespace GraduateProject.Logic.Controllers
 
         public async Task<Product> RemoveProduct(ObjectId id)
         {
+            Initialize();
             var filter = Builders<Product>.Filter.Eq(s => s.Id, id);
             var removedProduct = await product.FindOneAndDeleteAsync(filter);
             if (removedProduct != null)
@@ -61,6 +62,7 @@ namespace GraduateProject.Logic.Controllers
 
         public async Task<ReplaceOneResult> UpdateProduct(Product productToUpdate, int quantity = 0)
         {
+            Initialize();
             var filter = Builders<Product>.Filter.Eq(x => x.Id, productToUpdate.Id);
             if (quantity != 0)
                 productToUpdate.Quantity = quantity;

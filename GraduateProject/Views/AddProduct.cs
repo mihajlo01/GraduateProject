@@ -83,7 +83,7 @@ namespace GraduateProject.Views
                     ProductType = productType.SelectedItem.ToString(),
                     Provider = provider.SelectedItem.ToString(),
                     ProductSize = productSize.Visible == true ? productSize.SelectedItem.ToString() : numericUpDown.Value.ToString(),
-                    ProductCode = (long)Convert.ToInt64(productCode.Text),
+                    ProductCode = productCode.Text.ToString().ToUpper(),
                     Color = productColor.Text,
                     Price = price.Value,
                     IsProductAvailable = isProductAvailable.Checked,

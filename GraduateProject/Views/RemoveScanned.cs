@@ -17,12 +17,14 @@ namespace GraduateProject.Views
     public partial class RemoveScanned : Form
     {
         IProductsInterface productsInterface;
+        IUsersInterface usersInterface;
         Product product;
         User user;
         public RemoveScanned(Product product, User user)
         {
             InitializeComponent();
             productsInterface = new ProductsController();
+            usersInterface = new UsersController();
             this.product = product;
             this.user = user;
         }
@@ -55,6 +57,8 @@ namespace GraduateProject.Views
             else
             {
                 await productsInterface.RemoveProduct(product.Id);
+                user.RemovedProductCodes.Add(product.ProductCode);
+                await usersInterface.UpdateUser(user._id, user);
                 MessageBox.Show("Product removed successfully!", "Success!", MessageBoxButtons.OK);
                 backButton_Click(sender, e);
             }

@@ -67,6 +67,6 @@ C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\Graduate
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.Scanner.resources
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\bin\Debug\System.Collections.Immutable.dll
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\bin\Debug\System.Collections.Immutable.xml
-C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.csproj.AssemblyReference.cache
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.ProductInformation.resources
 C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.Views.RemoveScanned.resources
+C:\Users\Mihajlo\source\repos\GraduateProject\GraduateProject\obj\Debug\GraduateProject.csproj.AssemblyReference.cache

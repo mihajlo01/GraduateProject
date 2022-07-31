@@ -20,7 +20,7 @@ namespace GraduateProject.Views
         {
             InitializeComponent();
             this.user = user;
-            if (!user.ProductDashboardPermission || !user.RemoveProductPermission)
+            if (!user.ProductDashboardPermission)
                 productsDashboardButton.Enabled = false;
             if (!user.AddProductPermission)
             {

@@ -10,7 +10,7 @@ namespace GraduateProject.Logic.Interfaces
     {
         Task<bool> InsertProduct(Product productToInsert);
         Task<List<Product>> GetAllProducts();
-        Task<Product> GetProductByProductCode(long productCode);
+        Task<Product> GetProductByProductCode(string productCode);
         Task<Product> RemoveProduct(ObjectId id);
         Task<ReplaceOneResult> UpdateProduct(Product productToUpdate, int quantity = 0);
     }

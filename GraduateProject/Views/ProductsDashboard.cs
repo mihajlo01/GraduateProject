@@ -29,9 +29,14 @@ namespace GraduateProject.Views
             userLabel.Text += user.Username;
             nameLabel.Text += user.Name;
             companyNameLabel.Text += user.CompanyName;
-            enteredProductsLabel.Text += user.EnteredProductCodes.Count;
-            selledProductsLabel.Text += user.SelledProductCodes.Count;
-            removedProductsLabel.Text += user.RemovedProductCodes.Count;
+            enteredProductsLabel.Text += user.EnteredProductCodes != null ? user.EnteredProductCodes.Count : 0;
+            selledProductsLabel.Text += user.SelledProductCodes != null ? user.SelledProductCodes.Count : 0;
+            removedProductsLabel.Text += user.RemovedProductCodes != null ? user.RemovedProductCodes.Count : 0;
+            if (!user.RemoveProductPermission)
+            {
+                removeSelectedProducts.Enabled = false;
+                scanToRemoveButton.Enabled = false;
+            }
         }
 
         private void backToDashboard_Click(object sender, EventArgs e)
@@ -76,7 +81,7 @@ namespace GraduateProject.Views
             Scanner scanner = new Scanner(true);
             scanner.ShowDialog();
             ProductCode = Scanner.SetProductCode;
-            Product product = await productsInterface.GetProductByProductCode((long)Convert.ToInt64(ProductCode));
+            Product product = await productsInterface.GetProductByProductCode(ProductCode.ToUpper());
             if (product != null)
             {
                 ProductInformation productInformation = new ProductInformation(product, user);
@@ -95,11 +100,18 @@ namespace GraduateProject.Views
             Scanner scanner = new Scanner(true);
             scanner.ShowDialog();
             ProductCode = Scanner.SetProductCode;
-            Product product = await productsInterface.GetProductByProductCode((long)Convert.ToInt64(ProductCode));
-            RemoveScanned removeScanned = new RemoveScanned(product, user);
-            Hide();
-            removeScanned.ShowDialog();
-            Close();
+            Product product = await productsInterface.GetProductByProductCode(ProductCode.ToUpper());
+            if (product == null)
+                MessageBox.Show("Product is not found!", "Failure", MessageBoxButtons.OK);
+            else
+            {
+                RemoveScanned removeScanned = new RemoveScanned(product, user);
+                Hide();
+                removeScanned.ShowDialog();
+                Close();
+                user = await usersInterface.GetUserById(user._id);
+                removedProductsLabel.Text = "Removed Products:  " + user.RemovedProductCodes.Count;
+            }
         }
     }
 }
