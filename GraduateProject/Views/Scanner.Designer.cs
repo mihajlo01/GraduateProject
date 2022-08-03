@@ -34,6 +34,7 @@ namespace GraduateProject.Views
             this.enterProductManuallyLabel = new System.Windows.Forms.Label();
             this.manualProductCode = new System.Windows.Forms.TextBox();
             this.orLabel = new System.Windows.Forms.Label();
+            this.useBarcodeScannerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // scannedCode
@@ -83,11 +84,22 @@ namespace GraduateProject.Views
             this.orLabel.TabIndex = 4;
             this.orLabel.Text = "OR";
             // 
+            // useBarcodeScannerLabel
+            // 
+            this.useBarcodeScannerLabel.AutoSize = true;
+            this.useBarcodeScannerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.useBarcodeScannerLabel.Location = new System.Drawing.Point(39, 108);
+            this.useBarcodeScannerLabel.Name = "useBarcodeScannerLabel";
+            this.useBarcodeScannerLabel.Size = new System.Drawing.Size(147, 12);
+            this.useBarcodeScannerLabel.TabIndex = 5;
+            this.useBarcodeScannerLabel.Text = "Press Esc to use BarcodeScanner!";
+            // 
             // Scanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(262, 133);
+            this.Controls.Add(this.useBarcodeScannerLabel);
             this.Controls.Add(this.orLabel);
             this.Controls.Add(this.manualProductCode);
             this.Controls.Add(this.enterProductManuallyLabel);
@@ -97,7 +109,9 @@ namespace GraduateProject.Views
             this.Name = "Scanner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Scanner";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Scanner_FormClosed);
             this.Load += new System.EventHandler(this.Scanner_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Scanner_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +124,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.Label enterProductManuallyLabel;
         private System.Windows.Forms.TextBox manualProductCode;
         private System.Windows.Forms.Label orLabel;
+        private System.Windows.Forms.Label useBarcodeScannerLabel;
     }
 }

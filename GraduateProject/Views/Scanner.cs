@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraduateProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,17 @@ namespace GraduateProject.Views
 {
     public partial class Scanner : Form
     {
+        User user;
         static bool IsRemove = false;
-        public static string SetProductCode = "0";
-        public Scanner(bool isRemoveProduct = false)
+        public static string SetProductCode;
+        public static bool IsClosed;
+        public Scanner(User user, bool isRemoveProduct = false)
         {
             InitializeComponent();
+            this.user = user;
             IsRemove = isRemoveProduct;
+            SetProductCode = "0";
+            IsClosed = false;
         }
 
         private async void scannedCode_KeyDown(object sender, KeyEventArgs e)
@@ -38,6 +44,7 @@ namespace GraduateProject.Views
                 orLabel.Visible = false;
                 enterProductManuallyLabel.Visible = false;
                 manualProductCode.Visible = false;
+                useBarcodeScannerLabel.Visible = false;
             }
         }
 
@@ -48,6 +55,20 @@ namespace GraduateProject.Views
                 SetProductCode = manualProductCode.Text;
                 Close();
             }
+            if(e.KeyCode == Keys.Escape)
+                scannedCode.Focus();
+        }
+
+        private void Scanner_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(SetProductCode == "0")
+                IsClosed = true;
+        }
+
+        private void Scanner_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                scannedCode.Focus();
         }
     }
 }

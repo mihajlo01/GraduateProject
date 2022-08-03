@@ -34,7 +34,7 @@ namespace GraduateProject.Views
             quantity.Maximum = Convert.ToDecimal(product.Quantity);
             productCodeLabel.Text += product.ProductCode;
             addedByLabel.Text += product.AddedBy;
-            createdLabel.Text += product.TimeAdded.ToString("hh:mm:ss");
+            createdLabel.Text += product.TimeAdded.ToString();
             quantity.Value = Convert.ToDecimal(product.Quantity);
         }
 
@@ -57,6 +57,7 @@ namespace GraduateProject.Views
             else
             {
                 await productsInterface.RemoveProduct(product.Id);
+                user.RemovedProductCodes = user.RemovedProductCodes != null ? user.RemovedProductCodes : new List<string>();
                 user.RemovedProductCodes.Add(product.ProductCode);
                 await usersInterface.UpdateUser(user._id, user);
                 MessageBox.Show("Product removed successfully!", "Success!", MessageBoxButtons.OK);

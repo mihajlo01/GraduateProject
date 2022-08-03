@@ -3,6 +3,7 @@ using GraduateProject.Logic.Interfaces;
 using GraduateProject.Logic.Models;
 using GraduateProject.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -57,6 +58,8 @@ namespace GraduateProject.Views
                     if (removedProduct != null)
                     {
                         var fetchedUser = await usersInterface.GetUserByUsername(user.Username);
+
+                        fetchedUser.RemovedProductCodes = fetchedUser.RemovedProductCodes != null ? fetchedUser.RemovedProductCodes : new List<string>();
                         fetchedUser.RemovedProductCodes.Add(removedProduct.ProductCode);
                         if (fetchedUser != null)
                         {
@@ -78,7 +81,7 @@ namespace GraduateProject.Views
 
         private async void productInformationButton_Click(object sender, EventArgs e)
         {
-            Scanner scanner = new Scanner(true);
+            Scanner scanner = new Scanner(user, true);
             scanner.ShowDialog();
             ProductCode = Scanner.SetProductCode;
             Product product = await productsInterface.GetProductByProductCode(ProductCode.ToUpper());
@@ -88,8 +91,9 @@ namespace GraduateProject.Views
                 Hide();
                 productInformation.ShowDialog();
                 Close();
+                Scanner.SetProductCode = "0";
             }
-            else
+            else if(!Scanner.IsClosed)
             {
                 MessageBox.Show("Product could not be found!", "Failure!", MessageBoxButtons.OK);
             }
@@ -97,20 +101,24 @@ namespace GraduateProject.Views
 
         private async void scanToRemoveButton_Click(object sender, EventArgs e)
         {
-            Scanner scanner = new Scanner(true);
+            Scanner scanner = new Scanner(user, true);
             scanner.ShowDialog();
             ProductCode = Scanner.SetProductCode;
-            Product product = await productsInterface.GetProductByProductCode(ProductCode.ToUpper());
-            if (product == null)
-                MessageBox.Show("Product is not found!", "Failure", MessageBoxButtons.OK);
-            else
+            if (!Scanner.IsClosed)
             {
-                RemoveScanned removeScanned = new RemoveScanned(product, user);
-                Hide();
-                removeScanned.ShowDialog();
-                Close();
-                user = await usersInterface.GetUserById(user._id);
-                removedProductsLabel.Text = "Removed Products:  " + user.RemovedProductCodes.Count;
+                Product product = await productsInterface.GetProductByProductCode(ProductCode.ToUpper());
+                if (product == null)
+                    MessageBox.Show("Product is not found!", "Failure", MessageBoxButtons.OK);
+                else
+                {
+                    RemoveScanned removeScanned = new RemoveScanned(product, user);
+                    Hide();
+                    removeScanned.ShowDialog();
+                    Close();
+                    user = await usersInterface.GetUserById(user._id);
+                    removedProductsLabel.Text = "Removed Products:  " + user.RemovedProductCodes.Count;
+                    Scanner.SetProductCode = "0";
+                }
             }
         }
     }

@@ -95,6 +95,7 @@ namespace GraduateProject.Views
                 if (await productsInterface.InsertProduct(product))
                 {
                     var fetchedUser = await usersInterface.GetUserByUsername(user.Username);
+                    fetchedUser.EnteredProductCodes = fetchedUser.EnteredProductCodes != null ? fetchedUser.EnteredProductCodes : new List<string>();
                     fetchedUser.EnteredProductCodes.Add(product.ProductCode);
                     if (fetchedUser != null)
                     {
@@ -171,7 +172,7 @@ namespace GraduateProject.Views
 
         private void scanButton_Click(object sender, EventArgs e)
         {
-            Scanner scanner = new Scanner();
+            Scanner scanner = new Scanner(user, false);
             scanner.ShowDialog();
             productCode.Text = Scanner.SetProductCode;
         }
