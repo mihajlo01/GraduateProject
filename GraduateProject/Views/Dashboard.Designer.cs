@@ -29,6 +29,7 @@ namespace GraduateProject.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.addProductButton = new System.Windows.Forms.Button();
             this.productsDashboardButton = new System.Windows.Forms.Button();
@@ -36,13 +37,15 @@ namespace GraduateProject.Views
             this.clock = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
             this.manualAdd = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // welcomeLabel
             // 
             this.welcomeLabel.AutoSize = true;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.Location = new System.Drawing.Point(12, 22);
+            this.welcomeLabel.Location = new System.Drawing.Point(13, 22);
             this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(76, 18);
             this.welcomeLabel.TabIndex = 0;
@@ -84,10 +87,10 @@ namespace GraduateProject.Views
             // clock
             // 
             this.clock.AutoSize = true;
-            this.clock.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clock.Location = new System.Drawing.Point(311, 22);
+            this.clock.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clock.Location = new System.Drawing.Point(286, 27);
             this.clock.Name = "clock";
-            this.clock.Size = new System.Drawing.Size(58, 17);
+            this.clock.Size = new System.Drawing.Size(88, 25);
             this.clock.TabIndex = 5;
             this.clock.Text = "00:00:00";
             // 
@@ -113,11 +116,21 @@ namespace GraduateProject.Views
             this.manualAdd.UseVisualStyleBackColor = true;
             this.manualAdd.CheckedChanged += new System.EventHandler(this.manualAdd_CheckedChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(230, 106);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(197, 116);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 227);
+            this.ClientSize = new System.Drawing.Size(451, 244);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.manualAdd);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.clock);
@@ -130,6 +143,7 @@ namespace GraduateProject.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,5 +158,6 @@ namespace GraduateProject.Views
         private System.Windows.Forms.Label clock;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.CheckBox manualAdd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
