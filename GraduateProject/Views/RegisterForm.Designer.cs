@@ -37,7 +37,7 @@ namespace GraduateProject
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxCompanyName = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.registerButton = new System.Windows.Forms.Button();
             this.backToLoginButton = new System.Windows.Forms.Button();
             this.editUserPermission = new System.Windows.Forms.CheckBox();
             this.addProductsPermission = new System.Windows.Forms.CheckBox();
@@ -123,15 +123,15 @@ namespace GraduateProject
             this.textBoxPassword.TabIndex = 7;
             this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
-            // button1
+            // registerButton
             // 
-            this.button1.Location = new System.Drawing.Point(164, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 27);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.registerButton.Location = new System.Drawing.Point(164, 324);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(84, 27);
+            this.registerButton.TabIndex = 8;
+            this.registerButton.Text = "Register";
+            this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // backToLoginButton
             // 
@@ -204,7 +204,7 @@ namespace GraduateProject
             this.Controls.Add(this.addProductsPermission);
             this.Controls.Add(this.editUserPermission);
             this.Controls.Add(this.backToLoginButton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxCompanyName);
             this.Controls.Add(this.textBoxUsername);
@@ -232,7 +232,7 @@ namespace GraduateProject
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.TextBox textBoxCompanyName;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button backToLoginButton;
         private System.Windows.Forms.CheckBox editUserPermission;
         private System.Windows.Forms.CheckBox addProductsPermission;

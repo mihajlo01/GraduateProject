@@ -17,39 +17,6 @@ namespace GraduateProject
             usersInterface = new UsersController();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            ValidateRegisterForm();
-
-            User user = new User()
-            {
-                Name = textBoxName.Text,
-                Username = textBoxUsername.Text,
-                CompanyName = textBoxCompanyName.Text,
-                Password = textBoxPassword.Text,
-                EnteredProductCodes = new List<string>(),
-                RemovedProductCodes = new List<string>(),
-                SelledProductCodes = new List<string>(),
-                EditUserPermission = editUserPermission.Checked,
-                AddProductPermission = addProductsPermission.Checked,
-                RemoveProductPermission = removeProductsPermission.Checked,
-                ProductDashboardPermission = productDashboardPermission.Checked
-            };
-
-
-            if (await usersInterface.InsertUser(user))
-            {
-                MessageBox.Show("Successfully created new user!", "Success!", MessageBoxButtons.OK);
-
-                Login login = new Login();
-                Hide();
-                login.ShowDialog();
-                Close();
-            }
-            else
-                MessageBox.Show("Failed to create new user!\nUser already exists!", "Failure!", MessageBoxButtons.OK);
-        }
-
         private void backToLoginButton_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -96,6 +63,39 @@ namespace GraduateProject
                 MessageBox.Show("Text fields must be filled!", "Failure!", MessageBoxButtons.OK);
             else
                 return;
+        }
+
+        private async void registerButton_Click(object sender, EventArgs e)
+        {
+            ValidateRegisterForm();
+
+            User user = new User()
+            {
+                Name = textBoxName.Text,
+                Username = textBoxUsername.Text,
+                CompanyName = textBoxCompanyName.Text,
+                Password = textBoxPassword.Text,
+                EnteredProductCodes = new List<string>(),
+                RemovedProductCodes = new List<string>(),
+                SelledProductCodes = new List<string>(),
+                EditUserPermission = editUserPermission.Checked,
+                AddProductPermission = addProductsPermission.Checked,
+                RemoveProductPermission = removeProductsPermission.Checked,
+                ProductDashboardPermission = productDashboardPermission.Checked
+            };
+
+
+            if (await usersInterface.InsertUser(user))
+            {
+                MessageBox.Show("Successfully created new user!", "Success!", MessageBoxButtons.OK);
+
+                Login login = new Login();
+                Hide();
+                login.ShowDialog();
+                Close();
+            }
+            else
+                MessageBox.Show("Failed to create new user!\nUser already exists!", "Failure!", MessageBoxButtons.OK);
         }
     }
 }

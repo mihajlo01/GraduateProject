@@ -16,10 +16,6 @@ namespace GraduateProject
             usersInterface = new UsersController();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-        }
-
         private void password_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
